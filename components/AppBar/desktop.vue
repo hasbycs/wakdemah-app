@@ -1,12 +1,14 @@
 <template>
-  <div class="header">
+  <div class="d-none d-lg-block">
     <div class="d-flex justify-content-between align-items-center">
       <div class="d-flex">
-        <a href="#" class="header__logo">Jhon Doe</a>
         <div class="nav__perfil">
           <div class="nav__img">
             <img src="../../assets/img/perfil.png" alt="" />
           </div>
+          <a href="#" class="text-decoration-none text-dark"
+            ><strong>Wakdemah</strong>
+          </a>
         </div>
       </div>
       <div>

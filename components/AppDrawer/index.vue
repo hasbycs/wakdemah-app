@@ -1,7 +1,7 @@
 <template>
-  <aside :class="['app-drawer', mShow && 'is-active']">
+  <aside class="pe-none" :class="['app-drawer', mShow && 'is-active']">
     <div ref="overlay" class="app-drawer__overlay" @click.self="animateHide" />
-    <nav ref="content" class="app-drawer__content">
+    <nav ref="content" class="app-drawer__content bg-white">
       <ul>
         <li v-for="(m, index) in menus" :key="index">
           <a
@@ -107,9 +107,7 @@ export default {
       ]
     },
   },
-  created() {
-    // this.loadIcons()
-  },
+  created() {},
   mounted() {
     this.$watch(
       'show',
@@ -123,39 +121,6 @@ export default {
     )
   },
   methods: {
-    // async loadIcons() {
-    //   const lib = await import('@fortawesome/free-solid-svg-icons').then((m) =>
-    //     m ? m.default || m : null
-    //   )
-    //   if (!lib) {
-    //     return
-    //   }
-
-    //   const {
-    //     faHome,
-    //     faChartLine,
-    //     faNewspaper,
-    //     faPhoneAlt,
-    //     faQuestionCircle,
-    //     faComment,
-    //     faWallet,
-    //     faBoxOpen,
-    //     faTachometerAlt,
-    //     faMapMarked,
-    //   } = lib
-    //   this.icon = {
-    //     faHome,
-    //     faChartLine,
-    //     faNewspaper,
-    //     faPhoneAlt,
-    //     faQuestionCircle,
-    //     faComment,
-    //     faWallet,
-    //     faBoxOpen,
-    //     faTachometerAlt,
-    //     faMapMarked,
-    //   }
-    // },
     animate(toggled) {
       if (toggled) {
         this.animateShow()
@@ -228,7 +193,12 @@ export default {
 
 <style lang="scss" scoped>
 .app-drawer {
-  @apply pointer-events-none fixed inset-0 z-50;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
 }
 
 .app-drawer__content {
@@ -237,33 +207,46 @@ export default {
   width: 75%;
   max-width: 400px;
   min-width: 300px;
-  @apply absolute top-0 left-0 bottom-0
-  bg-white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  --bg-opacity: 1;
 }
 
 .app-drawer__overlay {
   transition: opacity 0.3s ease-out;
   opacity: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  @apply absolute inset-0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .app-drawer.is-active {
-  @apply pointer-events-auto;
+  pointer-events: auto !important;
 }
 
 .app-drawer__menu-item {
-  @apply cursor-pointer
-  flex flex-row items-center
-  text-xl text-gray-600 p-4;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.25rem;
+  --text-opacity: 1;
+  color: #718096;
+  color: rgba(113, 128, 150, var(--text-opacity));
+  padding: 1rem;
 
   &.is-active {
-    @apply text-green-500;
+    color: green;
   }
 
   &:hover {
-    @apply text-white
-    bg-green-500;
+    color: white;
+    background-color: green;
   }
 }
 </style>

@@ -5,7 +5,7 @@
       @toggle:drawer="isDrawerOpen = $event"
     />
     <div ref="sidebarTopRef" style="visibility: hidden" />
-    <AppDrawer ref="drawer" :show.sync="isDrawerOpen" class="lg:hidden" />
+    <AppDrawer ref="drawer" :show.sync="isDrawerOpen" class="d-lg-none" />
     <div>
       <Nuxt />
     </div>

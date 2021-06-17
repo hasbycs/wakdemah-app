@@ -1,9 +1,9 @@
 <template>
   <header
-    class="appbar"
+    class="appbar sticky-top bg-white"
     style="box-shadow: 0 0px 32px -4px rgba(0, 0, 0, 0.15)"
   >
-    <div class="container mx-auto p-4">
+    <div class="container mx-auto p-3">
       <MobileAppBar
         :toggle-drawer="drawerActive"
         @toggle:drawer="$emit('toggle:drawer', $event)"
@@ -28,4 +28,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.appbar {
+  /* position: sticky; */
+}
+</style>

@@ -1,35 +1,32 @@
 <template>
-  <div class="d-lg-none">
+  <div class="d-lg-none d-block">
     <a
-      v-show="canGoBack"
-      class="cursor-pointer flex items-center"
+      v-if="canGoBack"
+      class="cursor-pointer d-flex align-items-center"
       href="javascript:void(0)"
       @click.prevent="onGoBack"
     >
-      <b-icon icon="camera" font-scale="1"></b-icon>
+      <b-icon icon="arrow-left-short" font-scale="1"></b-icon>
       <div class="text-left px-4">
         <p class="text-lg">Kembali</p>
       </div>
     </a>
-    <div v-show="!canGoBack" class="flex justify-between items-center">
-      <div class="flex items-center">
+    <div
+      v-if="!canGoBack"
+      class="d-flex justify-content-between align-items-center"
+    >
+      <div class="d-flex align-items-center">
         <a
           v-show="showDrawerToggle"
-          class="cursor-pointer flex items-center mr-4"
+          class="cursor-pointer mr-4"
           href="javascript:void(0)"
           @click.prevent="onToggleDrawer"
         >
-          <b-icon icon="camera" font-scale="1"></b-icon>
+          <b-icon icon="justify" font-scale="2"></b-icon>
         </a>
-        <nuxt-link
-          tag="img"
-          to="/"
-          class="flex-none block h-8 sm:h-10 mx-auto mr-4"
-          src="../../assets/img/perfil.png"
-          alt
-        />
         <nuxt-link to="/" tag="div" class="text-left">
-          <p class="text-base">Millenial Koto-tuo</p>
+          <small>Wakdemah</small><br />
+          <small>by hasbycs</small>
         </nuxt-link>
       </div>
     </div>
@@ -37,12 +34,6 @@
 </template>
 
 <script>
-// import {
-//   faChevronLeft,
-//   faBell,
-//   faBars,
-// } from '@fortawesome/free-solid-svg-icons'
-
 export default {
   props: {
     toggleDrawer: {
@@ -52,11 +43,6 @@ export default {
   },
   data() {
     return {
-      //   icon: {
-      //     faBars,
-      //     faChevronLeft,
-      //     faBell,
-      //   },
       isDrawerToggled: false,
     }
   },
@@ -79,6 +65,9 @@ export default {
       },
     },
   },
+  created() {
+    console.log('route', this.$route.path !== '/')
+  },
   methods: {
     onToggleDrawer() {
       this.isDrawerToggled = !this.isDrawerToggled
@@ -91,4 +80,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+a {
+  color: black;
+}
+</style>
