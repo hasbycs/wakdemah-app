@@ -6,9 +6,13 @@
     />
     <div ref="sidebarTopRef" style="visibility: hidden" />
     <AppDrawer ref="drawer" :show.sync="isDrawerOpen" class="d-lg-none" />
-    <div>
+    <div class="w-100" style="min-height: 75vh">
       <Nuxt />
     </div>
+    <BackToTopButton />
+    <AppFooter v-show="isTopLevelRoute" class="container mx-auto pb-32">
+      <Footer class="footer m-4 rounded-lg bg-white shadow-lg" />
+    </AppFooter>
   </div>
 </template>
 
@@ -16,11 +20,15 @@
 import _throttle from 'lodash/throttle'
 import AppBar from '~/components/AppBar'
 import AppDrawer from '~/components/AppDrawer'
+import Footer from '~/components/Footer'
+import BackToTopButton from '~/components/BackToTopButton'
 
 export default {
   components: {
     AppBar,
     AppDrawer,
+    Footer,
+    BackToTopButton,
   },
   data() {
     return {
@@ -54,6 +62,14 @@ export default {
         this.watchWindowResize()
       }, 50)
     })
+  },
+  computed: {
+    isTopLevelRoute() {
+      return (
+        this.$route.path.split('/').length < 3 ||
+        this.$route.path.match(/\/donate/g)
+      )
+    },
   },
   methods: {
     watchWindowResize() {
@@ -139,5 +155,16 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 1em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .footer {
+    padding: 2em;
+  }
 }
 </style>

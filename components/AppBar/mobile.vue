@@ -65,9 +65,7 @@ export default {
       },
     },
   },
-  created() {
-    console.log('route', this.$route.path !== '/')
-  },
+  created() {},
   methods: {
     onToggleDrawer() {
       this.isDrawerToggled = !this.isDrawerToggled

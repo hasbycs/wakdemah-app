@@ -8,9 +8,8 @@
         <div class="content">
           <h3>Wakdemah Official</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis
-            aute irure dolor in reprehenderit
+            Merupakan tempat berita-berita hangat dan berbagai tutorial dalam
+            masalahmu
           </p>
           <a href="#" class="about-btn"
             >About us <i class="bx bx-chevron-right"></i
@@ -26,7 +25,7 @@
               data-aos-delay="100"
             >
               <i class="bx bx-receipt"></i>
-              <h4>Corporis voluptates sit</h4>
+              <h4>Berita</h4>
               <p>
                 Consequuntur sunt aut quasi enim aliquam quae harum pariatur
                 laboris nisi ut aliquip
@@ -38,7 +37,7 @@
               data-aos-delay="200"
             >
               <i class="bx bx-cube-alt"></i>
-              <h4>Ullamco laboris nisi</h4>
+              <h4>Tutorial</h4>
               <p>
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa
                 qui officia deserunt
@@ -50,7 +49,7 @@
               data-aos-delay="300"
             >
               <i class="bx bx-images"></i>
-              <h4>Labore consequatur</h4>
+              <h4>Keahlian</h4>
               <p>
                 Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut
                 maiores omnis facere
@@ -62,7 +61,7 @@
               data-aos-delay="400"
             >
               <i class="bx bx-shield"></i>
-              <h4>Beatae veritatis</h4>
+              <h4>Portfolio</h4>
               <p>
                 Expedita veritatis consequuntur nihil tempore laudantium vitae
                 denat pacta

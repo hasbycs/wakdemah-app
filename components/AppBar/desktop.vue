@@ -17,19 +17,22 @@
             <div class="nav__menu">
               <ul class="nav__list">
                 <li class="nav__item">
-                  <a href="#" class="nav__link active">Home</a>
+                  <a href="#" class="nav__link active">Beranda</a>
                 </li>
                 <li class="nav__item">
-                  <a href="#" class="nav__link">About</a>
+                  <a href="#" class="nav__link">Berita</a>
                 </li>
                 <li class="nav__item">
-                  <a href="#" class="nav__link">Skills </a>
+                  <a href="#" class="nav__link">Tutorial</a>
+                </li>
+                <li class="nav__item">
+                  <a href="#" class="nav__link">Keahlian </a>
                 </li>
                 <li class="nav__item">
                   <a href="#" class="nav__link">Portfolio</a>
                 </li>
                 <li class="nav__item">
-                  <a href="#" class="nav__link">Contact</a>
+                  <a href="#" class="nav__link">Kontak</a>
                 </li>
               </ul>
             </div>

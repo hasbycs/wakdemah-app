@@ -13,7 +13,7 @@
             :href="m.to"
             @click.prevent="onClickMenuItem(m)"
           >
-            <b-icon icon="camera" font-scale="1"></b-icon>
+            <b-icon class="nav-icon" :icon="m.icon" font-scale="1"></b-icon>
             <span>
               {{ m.label }}
             </span>
@@ -27,7 +27,7 @@
             :href="m.to"
             @click.prevent="onClickMenuItem(m, index)"
           >
-            <b-icon icon="camera" font-scale="1"></b-icon>
+            <b-icon class="nav-icon" :icon="m.icon" font-scale="1"></b-icon>
             <span>
               {{ m.label }}
             </span>
@@ -72,38 +72,20 @@ export default {
   computed: {
     menus() {
       return [
-        { to: '/', label: 'Home', exact: true, icon: '' },
+        { to: '/', label: 'Beranda', exact: true, icon: 'house-fill' },
         {
-          to: '#',
-          label: 'Data',
-          icon: '',
-          children: [
-            { to: '/data', label: 'Statistik', icon: '' },
-            {
-              to: '/distribution-case',
-              label: 'Sebaran Kasus',
-              icon: '',
-            },
-          ],
-        },
-        {
-          to: '/articles?tab=jabar',
+          to: '/news',
           label: 'Berita',
-          icon: '',
+          icon: 'newspaper',
         },
-        { to: '/contact', label: 'Kontak', icon: '' },
-        { to: '/faq', label: 'FAQ', icon: '' },
+        { to: '/tutorial', label: 'Tutorial', icon: 'book-fill' },
+        { to: '/skill', label: 'Keahlian', icon: 'tools' },
         {
-          to: 'https://forum.pikobar.jabarprov.go.id/',
-          label: 'Forum',
-          icon: '',
+          to: '/portfolio',
+          label: 'Portfolio',
+          icon: 'list-task',
         },
-        { to: '/donate/logistic', label: 'Donasi', icon: '' },
-        {
-          to: 'https://bansos.pikobar.jabarprov.go.id/',
-          label: 'Bantuan Sosial',
-          icon: '',
-        },
+        { to: '/contact', label: 'Kontak', icon: 'file-person-fill' },
       ]
     },
   },
@@ -248,5 +230,9 @@ export default {
     color: white;
     background-color: green;
   }
+}
+
+.nav-icon {
+  margin-right: 1em;
 }
 </style>
