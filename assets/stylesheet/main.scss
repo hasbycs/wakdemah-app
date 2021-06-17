@@ -1,0 +1,88 @@
+/* purgecss start ignore */
+
+@font-face {
+  font-family: 'Product Sans';
+  src: url('../fonts/product-sans-regular.ttf');
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  src: url('../fonts/product-sans-bold.ttf');
+  font-weight: bold;
+  font-display: swap;
+}
+
+html {
+  font-family: 'Product Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  font-display: swap;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.html-content {
+  p {
+    @apply leading-normal;
+  }
+  p,
+  ul,
+  ol,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 1rem;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  li {
+    margin-left: 2rem;
+  }
+
+  a {
+    color: #009bda;
+  }
+}
+
+.html-content.html-content--preview {
+  p {
+    display: inline;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* purgecss end ignore */
+// .calendar-right-to-left{
+//   margin-left: -650px !important;
+// }
