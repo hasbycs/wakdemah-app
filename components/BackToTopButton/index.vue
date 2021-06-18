@@ -92,11 +92,27 @@ export default {
   transition-property: transform, opacity;
   transition-duration: 0.45s;
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  @apply z-10 fixed w-16 h-16 flex justify-center items-center rounded-full shadow-xl text-white text-xl bg-brand-green;
+  z-index: 10;
+  position: fixed;
+  width: 4rem;
+  height: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 9999px;
+  color: #fff;
+  font-size: 1.25rem;
+  background-color: #5aaa4e;
 
-  @screen lg {
-    --translateY: -2rem;
-  }
+  // @screen lg {
+  //   --translateY: -2rem;
+  // }
 
   &:focus,
   &:active {
@@ -105,11 +121,11 @@ export default {
 
   &:focus,
   &:hover {
-    @apply bg-brand-green-light;
+    background-color: #76b74b;
   }
 
   &:active {
-    @apply bg-brand-green-lighter;
+    background-color: #b7eeae;
   }
 
   &.is-hidden {

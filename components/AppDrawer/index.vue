@@ -1,5 +1,5 @@
 <template>
-  <aside class="pe-none" :class="['app-drawer', mShow && 'is-active']">
+  <aside :class="['app-drawer', mShow && 'is-active']">
     <div ref="overlay" class="app-drawer__overlay" @click.self="animateHide" />
     <nav ref="content" class="app-drawer__content bg-white">
       <ul>
@@ -13,7 +13,7 @@
             :href="m.to"
             @click.prevent="onClickMenuItem(m)"
           >
-            <b-icon class="nav-icon" :icon="m.icon" font-scale="1"></b-icon>
+            <b-icon :icon="m.icon" font-scale="1"></b-icon>
             <span>
               {{ m.label }}
             </span>
@@ -27,22 +27,22 @@
             :href="m.to"
             @click.prevent="onClickMenuItem(m, index)"
           >
-            <b-icon class="nav-icon" :icon="m.icon" font-scale="1"></b-icon>
+            <b-icon :icon="m.icon" font-scale="1"></b-icon>
             <span>
               {{ m.label }}
             </span>
           </a>
-          <ul v-if="m.children" :class="['hidden ml-5 submenu-' + index]">
+          <ul v-if="m.children" :class="['hidden ml-3 submenu-' + index]">
             <li v-for="(subm, indexSub) in m.children" :key="indexSub">
               <a
                 :class="[
-                  ' ml-5 app-drawer__menu-item',
+                  ' ml-3 app-drawer__menu-item',
                   isMenuItemActive(subm) && 'is-active',
                 ]"
                 :href="subm.to"
                 @click.prevent="onClickMenuItem(subm)"
               >
-                <b-icon icon="camera" font-scale="1"></b-icon>
+                <b-icon :icon="subm.icon" font-scale="1"></b-icon>
                 <span>
                   {{ subm.label }}
                 </span>
@@ -78,7 +78,19 @@ export default {
           label: 'Berita',
           icon: 'newspaper',
         },
-        { to: '/tutorial', label: 'Tutorial', icon: 'book-fill' },
+        {
+          to: '/tutorial',
+          label: 'Tutorial',
+          icon: 'book-fill',
+          children: [
+            { to: '/data', label: 'Programming', icon: 'book-fill' },
+            {
+              to: '/distribution-case',
+              label: 'General Case',
+              icon: 'book-fill',
+            },
+          ],
+        },
         { to: '/skill', label: 'Keahlian', icon: 'tools' },
         {
           to: '/portfolio',
@@ -175,6 +187,7 @@ export default {
 
 <style lang="scss" scoped>
 .app-drawer {
+  pointer-events: none;
   position: fixed;
   top: 0;
   right: 0;
@@ -194,6 +207,10 @@ export default {
   left: 0;
   bottom: 0;
   --bg-opacity: 1;
+}
+
+.app-drawer__content span {
+  margin-left: 1rem;
 }
 
 .app-drawer__overlay {
@@ -230,9 +247,5 @@ export default {
     color: white;
     background-color: green;
   }
-}
-
-.nav-icon {
-  margin-right: 1em;
 }
 </style>
