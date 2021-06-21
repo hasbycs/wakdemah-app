@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <div class="row no-gutters">
+    <div
+      class="row no-gutters"
+      :style="{ color: darkMode == 'dark' ? 'white' : 'black' }"
+    >
       <div class="content col-xl-5 d-flex align-items-stretch">
         <div class="content">
           <h3>Wakdemah Official</h3>
@@ -57,7 +60,19 @@
 </template>
 
 <script>
-export default {}
+import { mapState, mapActions } from 'vuex'
+export default {
+  computed: {
+    ...mapState({
+      darkMode: (state) => state.darkMode.darkMode,
+    }),
+  },
+  watch: {
+    darkMode(v) {
+      console.log('vvv', v)
+    },
+  },
+}
 </script>
 
 <style></style>

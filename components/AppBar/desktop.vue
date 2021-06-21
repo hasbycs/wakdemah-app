@@ -11,10 +11,10 @@
           </a>
         </div>
       </div>
-      <div>
-        <nav class="nav" ref="navmenu" id="nav-menu">
+      <div class="d-flex">
+        <nav class="nav__menu" ref="navmenu" id="nav-menu">
           <div class="nav__content bd-grid">
-            <div class="nav__menu">
+            <div class="nav__menu d-flex">
               <ul class="nav__list">
                 <li class="nav__item">
                   <a href="#" class="nav__link active">Beranda</a>
@@ -34,30 +34,12 @@
                 <li class="nav__item">
                   <a href="#" class="nav__link">Kontak</a>
                 </li>
-                <!-- <li>
-                  <img
-                    src="../../static/icon/moon.png"
-                    id="icon"
-                    v-b-tooltip.hover.right
-                    title="dark mode"
-                    @click="darkMode"
-                  />
-                </li> -->
-                <li class="nav__item">
-                  <div
-                    id="icon"
-                    class="icon-dark-mode cursor-pointer"
-                    v-bind:class="{ 'theme-dark': nightMode }"
-                  >
-                    <input
-                      type="checkbox"
-                      id="theme-toggle"
-                      v-model="nightMode"
-                    />
-                    <label for="theme-toggle"><span></span></label>
-                  </div>
-                </li>
+                <li class="nav__item"></li>
               </ul>
+              <div id="icon" class="icon-dark-mode">
+                <input type="checkbox" id="theme-toggle" v-model="nightMode" />
+                <label for="theme-toggle"><span></span></label>
+              </div>
             </div>
           </div>
         </nav>
@@ -67,27 +49,28 @@
 </template>
 
 <script>
+const STATUS = {
+  dark: 'dark',
+  light: 'light',
+}
 export default {
   data() {
     return {
       nightMode:
-        (process.browser && localStorage.getItem('nightMode')) || false,
+        process.browser && localStorage.getItem('nightMode') == STATUS.dark
+          ? true
+          : false,
     }
   },
-  created() {
-    console.log('process.browser', process.browser)
-  },
+  created() {},
   watch: {
-    nightMode: function () {
-      localStorage.setItem('nightMode', JSON.stringify(this.nightMode))
-      console.log('Night Mode: ' + JSON.stringify(this.nightMode))
+    nightMode(v) {
+      let state = v ? STATUS.dark : STATUS.light
+      localStorage.setItem('nightMode', state)
+      this.$store.dispatch('darkMode/setDarkMode', state)
     },
   },
-  methods: {
-    darkMode(e) {
-      console.log(e)
-    },
-  },
+  methods: {},
 }
 </script>
 
@@ -100,9 +83,6 @@ export default {
   --switch-off-handle-x: -0.125em;
   --switch-on-handle-x: calc(100% - 0.125em);
   --switch-transition-duration: 0.2s;
-}
-.icon-dark-mode {
-  margin-top: -3px;
 }
 #theme-toggle {
   display: none;

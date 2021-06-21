@@ -6,7 +6,11 @@
     />
     <div ref="sidebarTopRef" style="visibility: hidden" />
     <AppDrawer ref="drawer" :show.sync="isDrawerOpen" class="d-lg-none" />
-    <div class="bg-white w-100" style="min-height: 75vh">
+    <div
+      class="full-content w-100"
+      style="min-height: 75vh"
+      :style="{ backgroundColor: darkMode == 'dark' ? 'black' : 'white' }"
+    >
       <Nuxt />
     </div>
     <BackToTopButton />
@@ -26,12 +30,17 @@ import AppDrawer from '~/components/AppDrawer'
 import Footer from '~/components/Footer'
 import BackToTopButton from '~/components/BackToTopButton'
 
+import { mapState, mapActions } from 'vuex'
+
 export default {
   components: {
     AppBar,
     AppDrawer,
     Footer,
     BackToTopButton,
+  },
+  created() {
+    this.$store.dispatch('darkMode/setDarkMode')
   },
   data() {
     return {
@@ -73,7 +82,11 @@ export default {
         this.$route.path.match(/\/donate/g)
       )
     },
+    ...mapState({
+      darkMode: (state) => state.darkMode.darkMode,
+    }),
   },
+  watch: {},
   methods: {
     watchWindowResize() {
       if (!window) {
@@ -169,5 +182,8 @@ html {
   .footer {
     padding: 2em;
   }
+}
+.full-content {
+  /* background-color: azure; */
 }
 </style>

@@ -28,8 +28,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.appbar {
-  /* position: sticky; */
-}
-</style>
+<style scoped></style>
