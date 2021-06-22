@@ -4,7 +4,7 @@
       class="row no-gutters"
       :style="{ color: darkMode == 'dark' ? 'white' : 'black' }"
     >
-      <div class="content col-xl-5 d-flex align-items-stretch">
+      <div class="col-xl-5 d-flex align-items-stretch pr-5 mt-4">
         <div class="content">
           <h3>Wakdemah Official</h3>
           <p>
