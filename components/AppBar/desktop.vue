@@ -1,5 +1,5 @@
 <template>
-  <div class="d-none d-lg-block">
+  <div>
     <div class="d-flex justify-content-between align-items-center">
       <div class="d-flex">
         <div class="nav__perfil">
@@ -34,12 +34,7 @@
                 <li class="nav__item">
                   <a href="#" class="nav__link">Kontak</a>
                 </li>
-                <li class="nav__item"></li>
               </ul>
-              <div id="icon" class="icon-dark-mode">
-                <input type="checkbox" id="theme-toggle" v-model="nightMode" />
-                <label for="theme-toggle"><span></span></label>
-              </div>
             </div>
           </div>
         </nav>
@@ -49,27 +44,12 @@
 </template>
 
 <script>
-const STATUS = {
-  dark: 'dark',
-  light: 'light',
-}
 export default {
   data() {
-    return {
-      nightMode:
-        process.browser && localStorage.getItem('nightMode') == STATUS.dark
-          ? true
-          : false,
-    }
+    return {}
   },
   created() {},
-  watch: {
-    nightMode(v) {
-      let state = v ? STATUS.dark : STATUS.light
-      localStorage.setItem('nightMode', state)
-      this.$store.dispatch('darkMode/setDarkMode', state)
-    },
-  },
+  watch: {},
   methods: {},
 }
 </script>

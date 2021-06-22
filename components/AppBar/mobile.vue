@@ -1,5 +1,5 @@
 <template>
-  <div class="d-lg-none d-block">
+  <div class="">
     <a
       v-if="canGoBack"
       class="cursor-pointer d-flex align-items-center"
