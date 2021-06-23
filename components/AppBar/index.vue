@@ -1,8 +1,5 @@
 <template>
-  <header
-    class="appbar sticky-top bg-white"
-    style="box-shadow: 0 0px 32px -4px rgba(0, 0, 0, 0.15)"
-  >
+  <header class="app-bar sticky-top">
     <div
       class="
         container

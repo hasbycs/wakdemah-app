@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="darkMode == 'dark' ? 'dark-mode' : 'light-mode'">
     <AppBar
       :drawer-active="isDrawerOpen"
       @toggle:drawer="isDrawerOpen = $event"
